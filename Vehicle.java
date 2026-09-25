@@ -21,4 +21,4 @@ public class Vehicle {
     public boolean isVintage() {
         return calculateAge() > 25;
     }
-}
+} 
