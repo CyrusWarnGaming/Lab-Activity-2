@@ -20,4 +20,4 @@ public class Main {
         System.out.println("Age: " + vehicle3.calculateAge());
         System.out.println("Vintage: " + vehicle3.isVintage());
     }
-}
+} 
