@@ -11,7 +11,9 @@ public class Vehicle {
     }
 
     public void displayInfo() {
-        System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
     }
 
     public int calculateAge() {
@@ -21,4 +23,4 @@ public class Vehicle {
     public boolean isVintage() {
         return calculateAge() > 25;
     }
-} 
+}
