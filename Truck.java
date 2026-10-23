@@ -1,3 +1,4 @@
+// Java Polymorphism Activity
 
 public class Truck extends Vehicle {
     private final double payloadTons;
