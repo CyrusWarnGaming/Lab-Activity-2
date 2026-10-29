@@ -1,27 +1,45 @@
-// Java Polymorphism Activity
 
 public class Truck extends Vehicle {
-    private final double payloadTons;
 
-    public Truck(String brand, String model, int year, double cargoCapacityTons) {
+    private double capacity;
+
+    public Truck(String brand, String model, int year, double capacity) {
         super(brand, model, year, 6);
-        this.payloadTons = cargoCapacityTons;
+        this.capacity = capacity;
     }
 
     public double getCargoCapacityTons() {
-        return payloadTons;
+        return capacity;
     }
 
     @Override
     public void startEngine() {
-        System.out.println(fullName()
-                + " -> Truck: the heavy diesel engine starts rumbling.");
+        System.out.println("Truck engine started");
     }
 
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("Category: Truck | Payload: "
-                + payloadTons + " tons");
+        System.out.println("Capacity: " + capacity + " tons");
+    }
+
+    @Override
+    public void moveForward() {
+        System.out.println("A truck moves forward");
+    }
+
+    @Override
+    public void moveBackwards() {
+        System.out.println("A truck moves backwards");
+    }
+
+    @Override
+    public void moveLeft() {
+        System.out.println("A truck turns left");
+    }
+
+    @Override
+    public void moveRight() {
+        System.out.println("A truck turns right");
     }
 }

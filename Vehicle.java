@@ -1,6 +1,6 @@
-// Java Polymorphism Activity
 
-public class Vehicle {
+public abstract class Vehicle {
+
     private String brand;
     private String model;
     private int year;
@@ -14,7 +14,13 @@ public class Vehicle {
     public Vehicle(String brand, String model, int year, int numberOfWheels) {
         this.brand = brand;
         this.model = model;
-        this.year = (year >= 1886 && year <= 2026) ? year : 2026;
+
+        if (year >= 1886 && year <= 2026) {
+            this.year = year;
+        } else {
+            this.year = 2026;
+        }
+
         this.numberOfWheels = numberOfWheels;
         this.totalKm = 0;
     }
@@ -60,31 +66,38 @@ public class Vehicle {
     }
 
     public void startEngine() {
-        System.out.println(fullName() + " -> Engine started.");
+        System.out.println(fullName() + " engine started");
     }
 
     public void displayInfo() {
         System.out.println("Brand: " + brand);
         System.out.println("Model: " + model);
         System.out.println("Year: " + year);
-        System.out.println("Number of Wheels: " + numberOfWheels);
+        System.out.println("Wheels: " + numberOfWheels);
     }
 
     public void drive(int km) {
         totalKm += km;
-        System.out.println(fullName() + " travelled " + km + " km.");
+        System.out.println(fullName() + " travelled " + km + " km");
     }
 
     public void drive(int km, String destination) {
         totalKm += km;
-        System.out.println(fullName() + " headed to " + destination
-                + " (" + km + " km).");
+        System.out.println(fullName() + " goes to " + destination);
     }
 
     public void drive(int km, String destination, boolean highway) {
         totalKm += km;
-        String road = highway ? "via the highway" : "via local roads";
-        System.out.println(fullName() + " went to " + destination
-                + " " + road + " (" + km + " km).");
+
+        if (highway) {
+            System.out.println(fullName() + " goes to " + destination + " using highway");
+        } else {
+            System.out.println(fullName() + " goes to " + destination + " using local road");
+        }
     }
+
+    public abstract void moveForward();
+    public abstract void moveBackwards();
+    public abstract void moveLeft();
+    public abstract void moveRight();
 }
