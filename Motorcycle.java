@@ -1,5 +1,5 @@
 
-public class Motorcycle extends Vehicle {
+public class Motorcycle extends Vehicle implements Serviceable {
 
     private int engineCC;
 
@@ -41,5 +41,15 @@ public class Motorcycle extends Vehicle {
     @Override
     public void moveRight() {
         System.out.println("A motorcycle turns right");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Motorcycle rides on the road.");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("Motorcycle: inspect tires and brakes.");
     }
 }

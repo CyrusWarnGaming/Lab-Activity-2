@@ -1,5 +1,5 @@
 
-public class Truck extends Vehicle {
+public class Truck extends Vehicle implements Serviceable {
 
     private double capacity;
 
@@ -41,5 +41,15 @@ public class Truck extends Vehicle {
     @Override
     public void moveRight() {
         System.out.println("A truck turns right");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Truck transports cargo on the road.");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("Truck: inspect cargo brakes.");
     }
 }

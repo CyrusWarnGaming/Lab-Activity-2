@@ -1,41 +1,35 @@
 
 public class Main {
 
+    public static void performService(Serviceable item) {
+        item.service();
+    }
+
     public static void main(String[] args) {
 
-        Vehicle[] vehicles = {
-            new Car("Ford", "Mustang", 2021, 2),
-            new Motorcycle("KTM", "Duke", 2023, 373),
-            new Truck("Mitsubishi", "Fuso", 2019, 8.0)
-        };
+        Car car = new Car("Ford", "Mustang", 2021, 2);
+        Motorcycle bike = new Motorcycle("KTM", "Duke", 2023, 373);
+        Truck truck = new Truck("Mitsubishi", "Fuso", 2019, 8.0);
+        Printer printer = new Printer();
 
-        for (Vehicle v : vehicles) {
+        System.out.println("=== SERVICEABLE INTERFACE ===");
 
-            v.displayInfo();
-            v.startEngine();
+        Serviceable[] items = {car, bike, truck, printer};
 
-            v.moveForward();
-            v.moveBackwards();
-            v.moveLeft();
-            v.moveRight();
-
-            System.out.println("Age: " + v.calculateAge());
-            System.out.println("Vintage: " + v.isVintage());
-
-            v.drive(15);
-            v.drive(30, "market");
-            v.drive(80, "airport", true);
-
-            System.out.println("Total km: " + v.getTotalKm());
-            System.out.println();
+        for (Serviceable item : items) {
+            performService(item);
         }
 
-        Vehicle car = vehicles[0];
+        System.out.println();
 
-        System.out.println(car.setYear(2000));
-        System.out.println(car.getYear());
+        System.out.println("=== VEHICLE ABSTRACTION ===");
 
-        System.out.println(car.setYear(2027));
-        System.out.println(car.getYear());
+        Vehicle[] vehicles = {car, bike, truck};
+
+        for (Vehicle vehicle : vehicles) {
+            vehicle.displayInfo();
+            vehicle.move();
+            System.out.println();
+        }
     }
 }
