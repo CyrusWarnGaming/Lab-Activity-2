@@ -1,0 +1,58 @@
+package vehicles;
+
+import contracts.Serviceable;
+
+public class Truck extends Vehicle implements Serviceable {
+
+    private double capacity;
+
+    public Truck(String brand, String model, int year, double capacity) {
+        super(brand, model, year, 6);
+        this.capacity = capacity;
+    }
+
+    public double getCargoCapacityTons() {
+        return capacity;
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Truck engine started");
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Capacity: " + capacity + " tons");
+    }
+
+    @Override
+    public void moveForward() {
+        System.out.println("A truck moves forward");
+    }
+
+    @Override
+    public void moveBackwards() {
+        System.out.println("A truck moves backwards");
+    }
+
+    @Override
+    public void moveLeft() {
+        System.out.println("A truck turns left");
+    }
+
+    @Override
+    public void moveRight() {
+        System.out.println("A truck turns right");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Truck transports cargo on the road.");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("Truck: inspect cargo brakes.");
+    }
+}
